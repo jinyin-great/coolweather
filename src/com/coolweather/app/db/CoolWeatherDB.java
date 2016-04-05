@@ -62,7 +62,7 @@ public class CoolWeatherDB {
 	/**
 	 * 从数据读取全国所有省份信息
 	 */
-	public List<Province> loadProvince() {
+	public List<Province> loadProvinces() {
 		List<Province> list = new ArrayList<Province>();
 		Cursor cursor = db
 				.query("Province", null, null, null, null, null, null);
@@ -152,6 +152,7 @@ public class CoolWeatherDB {
 				county.setCountyCode(cursor.getString(cursor
 						.getColumnIndex("county_code")));
 				county.setCityId(cityId);
+				list.add(county);
 			} while (cursor.moveToNext());
 		}
 		if (cursor != null) {
